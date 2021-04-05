@@ -49,7 +49,8 @@ function compress(str){
 
 app.get('/:str', function (req, res) {
        let myres=compress(req.params.str);
-       console.log(myres.compressed_str);
+    //    console.log(myres.compressed_str);
+       res.send(myres);
  })
 
  
