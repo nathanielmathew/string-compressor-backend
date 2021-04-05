@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 
+
 app.get('/listUsers', function (req, res) {
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
       console.log( data );
@@ -51,7 +52,9 @@ app.get('/:str', function (req, res) {
        console.log(myres.compressed_str);
  })
 
-var server = app.listen(8081, function () {
+ 
+const PORT = process.env.PORT || 3000;
+var server = app.listen(PORT, function () {
    var host = server.address().address
    var port = server.address().port
    console.log("Example app listening at http://%s:%s", host, port)
